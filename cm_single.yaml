@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: splunk
+  name: splunk
+spec:
+  containers:
+  - image: nginx
+    name: splunk
+    env:
+    - name: SPLUNK_BIN
+      valueFrom:
+        configMapKeyRef:
+          name: app-config
+          key: SPLUNK_BIN

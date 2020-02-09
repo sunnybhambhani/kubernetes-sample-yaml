@@ -1,0 +1,7 @@
+apiVersion: v1
+data:
+  SPLUNK_HOME: /etc/splunk
+  SPLUNK_BIN: /etc/splunk/bin
+kind: ConfigMap
+metadata:
+  name: app-config
