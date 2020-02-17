@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    run: kplabs-updates
+  name: kplabs-updates
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      run: kplabs-updates
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        run: kplabs-updates
+    spec:
+      containers:
+      - image: nginx
+        name: kplabs-updates
+        resources: {}
+status: {}
