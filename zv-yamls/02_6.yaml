@@ -1,0 +1,30 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  creationTimestamp: null
+  labels:
+    run: kplabs-job
+  name: kplabs-job
+spec:
+  concurrencyPolicy: Allow
+  jobTemplate:
+    metadata:
+      creationTimestamp: null
+    spec:
+      activeDeadlineSeconds: 10
+      template:
+        metadata:
+          creationTimestamp: null
+          labels:
+            run: kplabs-job
+        spec:
+          containers:
+          - command:
+            - "curl" 
+            - "kplabs.in/ping"
+            image: ubuntu
+            name: kplabs-job
+            resources: {}
+          restartPolicy: OnFailure
+  schedule: '* * * * *'
+status: {}

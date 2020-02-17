@@ -1,0 +1,24 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    run: kplabs-configuration
+  name: kplabs-configuration
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      run: kplabs-configuration
+  strategy:
+    rollingUpdate:
+      maxSurge: 30
+      maxUnavailable: 0
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        run: kplabs-configuration
+    spec:
+      containers:
+      - image: nginx
+        name: kplabs-configuration

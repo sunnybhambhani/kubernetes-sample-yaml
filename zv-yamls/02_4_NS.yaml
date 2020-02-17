@@ -17,6 +17,8 @@ spec:
       labels:
         run: kplabs-selector
     spec:
+      nodeSelector:
+        disk: ssd
       containers:
       - image: nginx
         name: kplabs-selector
